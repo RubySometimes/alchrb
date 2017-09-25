@@ -20,7 +20,9 @@ class Item
 
   # Creates a new Item object
   # @param id - the id of the Item
+  # @raise RunTimeError if the id is not an integer
   def initialize(id)
+    raise 'Parameter id must be an Integer' unless id.instance_of? Integer
     @id = id
     @name = generate_name
     @price = generate_price

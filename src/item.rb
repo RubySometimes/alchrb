@@ -30,6 +30,19 @@ class Item
     @image = OSRS::GE_IMAGE + @id.to_s
   end
 
+  # Class method to get the item's id by name
+  # @return the item's id
+  # @raise RunTimeError if the item doesn't exist
+  def self.id_by_name(item_name)
+    item_name = item_name.capitalize
+    uri = URI(OSRS::SHOP_DATA)
+    json = JSON.parse(Net::HTTP.get(uri))
+    item_id = 0
+    json.each { |id, name| item_id = id if name['name'].eql? item_name }
+    raise "Item (#{item_name}) doesn't exist." if item_id.eql? 0
+    item_id.to_i
+  end
+
   private
 
   # Gets the name of the Item

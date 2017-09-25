@@ -35,14 +35,16 @@ class Item
   # Gets the name of the Item
   # @return the name of the Item
   def generate_name
-    json = JSON.parse(shop_json)
+    uri = URI(OSRS::SHOP_DATA)
+    json = JSON.parse(Net::HTTP.get(uri))
     json[@id.to_s]['name']
   end
 
   # Gets the store price of the Item
   # @return the store price of the Item
   def generate_store
-    json = JSON.parse(shop_json)
+    uri = URI(OSRS::SHOP_DATA)
+    json = JSON.parse(Net::HTTP.get(uri))
     json[@id.to_s]['store'].to_i
   end
 
@@ -52,18 +54,5 @@ class Item
     uri = URI(OSRS::GE_JSON + @id.to_s)
     json = JSON.parse(Net::HTTP.get(uri))
     json['overall'].to_i
-  end
-
-  # Gets the shop.json data
-  # @return shop.json data as a String
-  def shop_json
-    json = ''
-    File.open('../data/shop.json', 'r') do |f|
-      f.each_line do |line|
-        json += line
-      end
-      f.close
-    end
-    json
   end
 end

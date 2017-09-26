@@ -34,6 +34,7 @@ class Item
 
   # Class method to get the item's id by name
   # @param item_name - the name of the item to search for
+  #        the item_name gets capitalized for search.
   # @return the item's id
   # @raise RunTimeError if the item doesn't exist
   def self.id_by_name(item_name)

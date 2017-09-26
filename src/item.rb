@@ -70,6 +70,22 @@ class Item
   def generate_price
     uri = URI(OSRS::GE_JSON + @id.to_s)
     json = JSON.parse(Net::HTTP.get(uri))
-    json['overall'].to_i
+    price_to_int(json['item']['current']['price'])
+  end
+
+  # Turns a price, like 1.9m and converts to an Integer.
+  # @param price - the price of an item in string form
+  # @return the integer form of a price.
+  def price_to_int(price)
+    price_float = clean_price(price)
+    price_float *= 1_000_000 if price[-1, 1] == 'm'
+    price_float *= 1_000 if price[-1, 1] == 'k'
+    price_float.to_i
+  end
+
+  # Takes a price as a string, and removes any commas.
+  # @param price - the price from the JSON in string form.
+  def clean_price(price)
+    price.sub(/,/, '').to_f
   end
 end

@@ -22,13 +22,13 @@ A very basic use case:
 ```ruby
 require_relative('alch')
 
-# Create whip and nature rune items
-abby_whip = new Item(4151)
+# Create ruby and nature rune items
+item = new Item(1603)
 nature_rune = new Item(Runes::NATURE_RUNE_ID)
 
-# output => 'Profit from alching Abyssal whip: -1843160'
-print "Profit from alching #{whip.name}: "
-puts whip.high_alch - (whip.price + nature_rune.price)
+# output => 'Profit from alching Ruby: -692'
+print "Profit from alching #{item.name}: "
+puts item.high_alch - (item.price + nature_rune.price)
 ```
 
 Alternatively, you can also get the Item's ID by the Item's name.
@@ -36,16 +36,15 @@ Alternatively, you can also get the Item's ID by the Item's name.
 ```ruby
 require_relative('alch')
 
-# Create whip and nature rune items
-abby_whip = new Item(Item.id_by_name('abyssal whip'))
+# Create ruby and nature rune items
+item = new Item(Item.id_by_name('ruby'))
 nature_rune = new Item(Runes::NATURE_RUNE_ID)
 
-# output => 'Profit from alching Abyssal whip: -1843160'
-print "Profit from alching #{whip.name}: "
-puts whip.high_alch - (whip.price + nature_rune.price)
+# output => 'Profit from alching Ruby: -692'
+print "Profit from alching #{item.name}: "
+puts item.high_alch - (item.price + nature_rune.price)
 ```
 
 # Full Documentation
 ## Classes
 * **[Item.rb](https://github.com/RubySometimes/alchrb/blob/master/docs/classes/Item.md)**
-

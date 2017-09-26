@@ -46,5 +46,6 @@ puts whip.high_alch - (whip.price + nature_rune.price)
 ```
 
 # Full Documentation
-TODO
+## Classes
+[Item.rb](https://github.com/RubySometimes/alchrb/blob/master/docs/classes/Item.md)
 

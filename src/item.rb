@@ -29,7 +29,7 @@ class Item
     @store_price = generate_store
     @low_alch = (@store_price * 0.4).to_i
     @high_alch = (@store_price * 0.6).to_i
-    @image = OSRS::GE_IMAGE + @id.to_s
+    @image = generate_image
   end
 
   # Class method to get the item's id by name
@@ -71,6 +71,14 @@ class Item
     uri = URI(OSRS::GE_JSON + @id.to_s)
     json = JSON.parse(Net::HTTP.get(uri))
     price_to_int(json['item']['current']['price'])
+  end
+
+  # Gets the image url of the item.
+  # @return the image url of the item as a string.
+  def generate_image
+    uri = URI(OSRS::GE_JSON + @id.to_s)
+    json = JSON.parse(Net::HTTP.get(uri))
+    json['item']['icon_large']
   end
 
   # Turns a price, like 1.9m and converts to an Integer.

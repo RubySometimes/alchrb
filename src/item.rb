@@ -84,9 +84,9 @@ class Item
   # @param price - the price of an item in string form
   # @return the integer form of a price.
   def price_to_int(price)
-    price_float = clean_price(price)
-    price_float *= 1_000_000 if price[-1, 1] == 'm'
-    price_float *= 1_000 if price[-1, 1] == 'k'
+    price_float = clean_price(price.to_s)
+    price_float *= 1_000_000 if price[-1] == 'm'
+    price_float *= 1_000 if price[-1] == 'k'
     price_float.to_i
   end
 

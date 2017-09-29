@@ -46,6 +46,20 @@ class Item
     item_id.to_i
   end
 
+  # Checks if this item's GE price is less than another item's
+  # @param other_item - the other item to compare to
+  # @return true if this item is worth less than the other_item.
+  def <(other)
+    price < other.price
+  end
+
+  # Checks if this item's GE price is greater than another item's
+  # @param other_item - the other item to compare to
+  # @return true if this item is worth less than the other_item.
+  def >(other)
+    price > other.price
+  end
+  
   private
 
   # Gets the name of the Item

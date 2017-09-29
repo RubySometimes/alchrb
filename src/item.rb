@@ -8,7 +8,6 @@ require('net/http')
 # @author RubySometimes (GitHub)
 # @version 24 September 2017
 class Item
-
   # Attributes
   attr_reader :id
   attr_reader :name
@@ -45,6 +44,34 @@ class Item
     json.each { |id, name| item_id = id if name['name'].eql? item_name }
     raise "Item (#{item_name}) doesn't exist." if item_id.eql? 0
     item_id.to_i
+  end
+
+  # Checks if this item's GE price is less than another item's
+  # @param other - the other item to compare to
+  # @return true if this item is worth less than the other_item.
+  def <(other)
+    price < other.price
+  end
+
+  # Checks if this item's GE price is greater than another item's
+  # @param other_item - the other item to compare to
+  # @return true if this item is worth less than the other_item.
+  def >(other)
+    price > other.price
+  end
+
+  # Take another item's price and subtract it from this item
+  # @param other - the other item, which price we will subtract from
+  # @return self.price - other.price
+  def -(other)
+    price - other.price
+  end
+
+  # Take another item's price and add it with this item's price
+  # @param other - the other item, which price we will subtract from
+  # @return self.price - other.price
+  def +(other)
+    price + other.price
   end
 
   private
@@ -85,9 +112,9 @@ class Item
   # @param price - the price of an item in string form
   # @return the integer form of a price.
   def price_to_int(price)
-    price_float = clean_price(price)
-    price_float *= 1_000_000 if price[-1, 1] == 'm'
-    price_float *= 1_000 if price[-1, 1] == 'k'
+    price_float = clean_price(price.to_s)
+    price_float *= 1_000_000 if price[-1] == 'm'
+    price_float *= 1_000 if price[-1] == 'k'
     price_float.to_i
   end
 

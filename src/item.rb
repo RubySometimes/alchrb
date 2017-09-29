@@ -8,13 +8,8 @@ require('net/http')
 # @author RubySometimes (GitHub)
 class Item
   # Attributes
-  attr_reader :id
-  attr_reader :name
-  attr_reader :price
-  attr_reader :store_price
-  attr_reader :low_alch
-  attr_reader :high_alch
-  attr_reader :image
+  attr_reader :id, :name, :price, :store_price,
+              :low_price, :high_alch, :image
 
   # Creates a new Item object
   # @param id - the id of the Item

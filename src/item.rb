@@ -59,7 +59,21 @@ class Item
   def >(other)
     price > other.price
   end
-  
+
+  # Take another item's price and subtract it from this item
+  # @param other - the other item, which price we will subtract from
+  # @return self.price - other.price
+  def -(other)
+    price - other.price
+  end
+
+  # Take another item's price and add it with this item's price
+  # @param other - the other item, which price we will subtract from
+  # @return self.price - other.price
+  def +(other)
+    price + other.price
+  end
+
   private
 
   # Gets the name of the Item

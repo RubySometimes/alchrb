@@ -44,6 +44,62 @@ typo = Item.new(Item.id_by_name('uncitriby')) # => RunTimeError
 
 ## Public Instance Methods
 
+### item < other_item -> Boolean
+Checks if this item's GE price is less than another item's.
+This will return `true` if the current item's price is less than
+the one it's comparing to.  Similarily, would return `false` if
+the current item's price is greater than the item's price
+getting compared.
+
+**parameters:**
+other - the other item to compare to
+
+**Example**
+```ruby
+Item.new(Item.id_by_name('nature rune')) < Item.new('ruby'); # => true
+Item.new(Item.id_by_name('abyssal whip')) < Item.new('ruby'); # => false
+```
+
+### item > other_item -> Boolean
+Checks if this item's GE price is greater than another item's.
+This will return `true` if the current item's price is greater than
+the one it's comparing to.  Similarily, would return `false` if
+the current item's price is less than the item's price
+getting compared.
+
+**parameters:**
+other - the other item to compare to
+
+**Example**
+```ruby
+Item.new(Item.id_by_name('nature rune')) > Item.new('ruby'); # => false
+Item.new(Item.id_by_name('abyssal whip')) > Item.new('ruby'); # => true
+```
+
+### item - other_item -> Integer
+Take another item's price and subtract it from this item.
+Returns `price - other.price`
+
+**parameters:**
+other - the other item, which price we will subtract from
+
+**Example**
+```ruby
+Item.new(Item.id_by_name('ruby')) - Item.new(Item.id_by_name('nature rune')) # => 842
+```
+
+### item + other_item -> Integer
+Take another item's price and add it with this item's price
+Returns `price + other.price`
+
+**parameters:**
+other - the other item, who's price we will add
+
+**Example**
+```ruby
+Item.new(Item.id_by_name('ruby')) + Item.new(Item.id_by_name('nature rune')) # => 1202
+```
+
 ### id -> Integer
 Gets the item's id as an Integer.
 

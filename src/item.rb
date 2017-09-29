@@ -6,7 +6,6 @@ require('net/http')
 # Items are anything that can be in your inventory.
 #
 # @author RubySometimes (GitHub)
-# @version 24 September 2017
 class Item
   # Attributes
   attr_reader :id

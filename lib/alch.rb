@@ -3,6 +3,6 @@
 
 # @author RubySometimes (GitHub)
 # @version 1.0.5
-require_relative('src/item')
-require_relative('src/osrs')
-require_relative('src/runes')
+require_relative('alch/item')
+require_relative('alch/osrs')
+require_relative('alch/runes')

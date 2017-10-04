@@ -8,7 +8,7 @@ require('net/http')
 # @author Marcello A. Sabino
 class Item
   attr_reader :id, :name, :price, :store_price,
-              :low_price, :high_alch, :image
+              :low_alch, :high_alch, :image
 
   # Creates a new Item object
   # @param [Integer] id - the id of the Item

@@ -7,8 +7,27 @@ require('net/http')
 #
 # @author Marcello A. Sabino
 class Item
-  attr_reader :id, :name, :price, :store_price,
-              :low_alch, :high_alch, :image
+  # Returns the id of the item
+  # @return [Integer] the item's id
+  attr_reader :id
+  # Returns the item's name
+  # @return [String] the item's name
+  attr_reader :name
+  # Returns the Grand Exchange price of the item
+  # @return [Integer] the Grand Exchange's price
+  attr_reader :price
+  # Returns the store's price of the item
+  # @return [Integer] the store's price
+  attr_reader :store_price
+  # Returns the gold pieces from low alching the item
+  # @return [Integer] the amount of GP from low alching
+  attr_reader :low_alch
+  # Returns the golf pieces from high alching the item
+  # @return [Integer] the amount of GP from high alching
+  attr_reader :high_alch
+  # Returns the image url of the item as a string.
+  # @return [String] the image url of the item, on Runescape.com
+  attr_reader :image
 
   # Creates a new Item object
   # @param [Integer] id - the id of the Item

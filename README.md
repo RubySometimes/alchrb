@@ -47,4 +47,4 @@ puts item.high_alch - (item.price + nature_rune.price)
 ```
 
 # Full Documentation
-[View the Full Documentation](http://www.rubydoc.info/gems/alch/1.0.1)
+[View the Full Documentation](http://www.rubydoc.info/gems/alch/1.1.0)

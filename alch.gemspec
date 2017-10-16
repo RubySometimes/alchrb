@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'alch'
-  s.version     = '1.1.0'
-  s.date        = '2017-10-04'
+  s.version     = '1.1.1'
+  s.date        = '2017-10-16'
   s.summary     = 'Grab OSRS Alch Prices'
   s.description = 'A simple way to determine alch prices on Oldschool Runescape'
   s.authors     = ['Marcello A. Sabino']

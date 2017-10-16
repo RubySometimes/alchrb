@@ -1,7 +1,7 @@
-require_relative('osrs')
-require_relative('runes')
-require('json')
-require('net/http')
+require 'json'
+require 'net/http'
+require_relative 'osrs'
+require_relative 'runes'
 
 # Items are anything that can be in your inventory.
 #
@@ -31,10 +31,8 @@ class Item
 
   # Creates a new Item object
   # @param [Integer] id - the id of the Item
-  # @raise RunTimeError if the id is not an integer
   def initialize(id)
-    raise 'Parameter id must be an Integer' unless id.instance_of? Integer
-    @id = id
+    @id = id.to_i
     @name = generate_name
     @price = generate_price
     @store_price = generate_store
